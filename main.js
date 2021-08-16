@@ -1,3 +1,12 @@
-let test = 123;
+const member = {
+  'honda': {
+    height: 170,
+    hobby: 'サッカー'
+  },
+  'kagawa': {
+    height: 190,
+    hobby: 'バスケ'
+  }
+}
 
-console.log(typeof test);
+console.log(member.kagawa.height);
