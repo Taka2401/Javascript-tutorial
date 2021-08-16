@@ -1,5 +1,5 @@
-const score = 80;
+const scores = [10, 20, 30];
 
-const comment = score > 80 ? 'good' : 'not good';
-
-console.log(comment);
+for ( score of scores ) {
+  console.log(score);
+}
