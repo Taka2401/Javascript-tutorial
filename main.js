@@ -1,1 +1,3 @@
-console.log("test123")
+let test = 123;
+
+console.log(typeof test);
