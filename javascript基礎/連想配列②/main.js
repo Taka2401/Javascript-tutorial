@@ -12,9 +12,9 @@ console.log(array_2[0][2]);
 // オブジェクト
 const member = {
   // キー：　バリュー
-  'name': '本田',
-  'age': 19,
-  'hobby': 'サッカー'
+  name: '本田',
+  age: 19,
+  hobby: 'サッカー'
 };
 
 console.log(member.age);
