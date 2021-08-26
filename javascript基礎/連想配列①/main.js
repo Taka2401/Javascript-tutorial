@@ -9,7 +9,9 @@ const array_2 = [
 
 console.log(array_2[0][2]);
 
+// オブジェクト
 const member = {
+  // キー：　バリュー
   'name': '本田',
   'age': 19,
   'hobby': 'サッカー'
