@@ -6,7 +6,7 @@ myMap.set('name', '田中');
 // オブジェクトを返す
 console.log(myMap);
 
-// getでkeyを指定
+// getでkeyを取る
 console.log(myMap.get('name'));
 
 // valuesで値を取る
