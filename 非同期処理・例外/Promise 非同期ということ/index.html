@@ -26,11 +26,15 @@
         })
       };
 
+      console.log(1);
       promiseTest4(300, 2)
       .then( change1 => promiseTest4(change1, 2))
       .then( change2 => promiseTest4(change2, 2))
       .then( change2 => promiseTest4(change2, 2))
       .catch(e => console.log(e));
+      console.log(3);
+
+      // 非同期なので処理が順番通りにならない
 
     </script>
   </body>
