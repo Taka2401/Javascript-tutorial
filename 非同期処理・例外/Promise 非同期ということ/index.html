@@ -1,9 +1,37 @@
 <!DOCTYPE html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
   </head>
   <body>
-    表示
-    <script src="main.js"></script>
+    <script>
+      // サーバーとのやり取りになど時間が掛かる処理　かかる時間がわからない
+      // 通信速度、サーバー負荷、処理に時間がかかったり
+      // new Promise(() => {});
+      // setTimeout
+
+      function promiseTest4(pay, seconds) {
+        return new Promise( (ok, ng) => {
+          setTimeout(() => {
+            if(pay > 100) {
+            let change = pay - 100;
+            console.log(`${seconds}秒、おつりは${change}です`);
+            ok(change);
+            }
+            ng('お金が足りません');
+          }, seconds * 1000)
+        })
+      };
+
+      promiseTest4(300, 2)
+      .then( change1 => promiseTest4(change1, 2))
+      .then( change2 => promiseTest4(change2, 2))
+      .then( change2 => promiseTest4(change2, 2))
+      .catch(e => console.log(e));
+
+    </script>
   </body>
 </html>
