@@ -16,23 +16,36 @@
       // Promise .catch(ng_callback) NGはcatch
       // Promise .catch((ng_reason) => {})
 
-      function promiseTest4(pay) {
+      function promiseTest4(pay) {  //ok
         return new Promise(ok => {
           let change = pay - 100;
           ok(change);
         });
       }
 
-      console.log(promiseTest4(500));
+      // ngも追加
+      // new Promise((ok, ng) => {});
 
-      promiseTest4(500).then(change1 => {
+      function promiseTest4(pay) {   //NG
+        return new Promise((ok, ng) => {
+          if(pay >= 100) {
+            let change = pay - 100;
+            ok(change);
+          }
+            ng('お金が足りません');
+        });
+      }
+
+      console.log(promiseTest4(80).catch(e => {console.log(e)}));
+
+      promiseTest4(180).then(change1 => {
         console.log(change1);
         return promiseTest4(change1); //Promiseでラップ ok(value)
       }).then(change2 => {
         console.log(change2);
-      });
+      }).catch(e => console.log(e));
 
-
+      // どこでエラーが出ているかわかるようにPromiseの最後にはcatchをつける
     </script>
   </body>
 </html>
