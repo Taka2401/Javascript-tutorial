@@ -1,9 +1,38 @@
 <!DOCTYPE html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
   </head>
   <body>
-    表示
-    <script src="main.js"></script>
+    <script>
+      // Promiseチェーン
+
+      // Promise .then(ok_callback, ng_callback)
+      // Promise .then((ok_value) => {}, (ng_value) => {})
+
+      // Promise .catch(ng_callback) NGはcatch
+      // Promise .catch((ng_reason) => {})
+
+      function promiseTest4(pay) {
+        return new Promise(ok => {
+          let change = pay - 100;
+          ok(change);
+        });
+      }
+
+      console.log(promiseTest4(500));
+
+      promiseTest4(500).then(change1 => {
+        console.log(change1);
+        return promiseTest4(change1); //Promiseでラップ ok(value)
+      }).then(change2 => {
+        console.log(change2);
+      });
+
+
+    </script>
   </body>
 </html>
