@@ -25,7 +25,35 @@
 
       console.log(test2());
 
-      promise
+      // Promise
+      // 1 状態(ok / ng)と値
+      // 2 Promiseチェーン
+
+      // callback
+      // 引数が状態 ok, ng (一つでも可)
+
+      function promiseTest1() { //インプットなし
+        return new Promise( ok => {
+          // 処理
+          ok ('プロミス1です');
+       });
+      }
+
+      console.log(promiseTest1());
+
+      const promiseTest2 = new Promise( ok => { // 省略
+        ok ('プロミス2です');
+      });
+
+      console.log(promiseTest2);
+
+      function promiseTest3(input) { //インプットあり
+        return new Promise(ok => {
+          ok (`プロミス${input}です`);
+        });
+      }
+
+      console.log(promiseTest3('太郎'));
 
 
     </script>
