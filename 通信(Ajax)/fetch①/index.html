@@ -1,9 +1,33 @@
 <!DOCTYPE html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    表示
-    <script src="main.js"></script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const url = 'https://dog.ceo/api/breeds/image/random';
+  // 短期集中アクセスはNG　2秒ほど間隔をあけてアクセス
+
+  const options = {
+    methods: 'GET'
+  };
+
+  const fetchTest1 = fetch(url, options);
+  console.log(fetchTest1);
+  // 返り値はPromise
+  // この状態では中身が確認できない
+
+  // APIからJsonを取得できるように、response.json()でパースする
+  // パースとは・・JsonをJavascriptで使えるように変換
+  const fetchTest2 = fetch(url, options)
+  .then( response => response.json());
+  console.log(fetchTest2);
+
+</script>
+
+
+</body>
 </html>
